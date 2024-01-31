@@ -2,6 +2,15 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #include <DHT_U.h>
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+
+#define BLYNK_PRINT Serial
+
+#define BLYNK_TEMPLATE_ID "TMPL5mqapNhai"
+#define BLYNK_TEMPLATE_NAME "TP2"
+#define BLYNK_AUTH_TOKEN "E3WzvDEFIdjEd7TsWjzN3i_yGphO9sC4"
 
 // Define the pins that we will use
 #define SENSOR 33
