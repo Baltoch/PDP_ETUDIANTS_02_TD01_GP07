@@ -66,9 +66,8 @@ void setup() {
   }
 
   // Send data to Blynk
-  // ...
-  // ...
-  // ...
+  Blynk.virtualWrite(V0, relative_humidity_measure);
+  Blynk.virtualWrite(V1, temp_measure);
 
   Serial.println("Going to sleep for 5 seconds...");
   delay(100);
