@@ -20,9 +20,8 @@
 DHT_Unified dht(SENSOR, DHTTYPE);
 
 // WiFi credentials go here
-// ...
-// ...
-// ...
+char ssid[] = "GPV";
+char pass[] = "12345678";
 
 void setup() {
   // Setup pins
@@ -34,9 +33,8 @@ void setup() {
   delay(100);
 
   // begin the Blynk session
-  // ...
-  // ...
-  // ...
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+  Blynk.run();
 
   // Start listening to the DHT11
   dht.begin();
