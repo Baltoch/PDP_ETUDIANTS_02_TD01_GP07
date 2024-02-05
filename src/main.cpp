@@ -24,6 +24,16 @@ DHT_Unified dht(SENSOR, DHTTYPE);
 char ssid[] = "GPV";
 char pass[] = "12345678";
 
+BLYNK_WRITE(V2)
+{
+  int pinValue = param.asInt(); // assigning incoming value from pin V0 to a variable
+  Serial.print("Received value from Blynk: ");
+  Serial.println(pinValue);
+  digitalWrite(LED,pinValue);
+  // Delay is only there so that we get a chance to see the LED value properly.
+  delay(1000);
+}
+
 void setup() {
   // Setup pins
   pinMode(LED, OUTPUT);
