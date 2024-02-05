@@ -8,10 +8,11 @@
 #define BLYNK_TEMPLATE_ID "TMPL5mqapNhai"
 #define BLYNK_TEMPLATE_NAME "TP2"
 #define BLYNK_AUTH_TOKEN "E3WzvDEFIdjEd7TsWjzN3i_yGphO9sC4"
+#define BLYNK_PRINT Serial
 
 #include <BlynkSimpleEsp32.h>
 
-#define BLYNK_PRINT Serial
+
 
 // Define the pins that we will use
 #define SENSOR 33
@@ -26,7 +27,7 @@ char pass[] = "12345678";
 
 BLYNK_WRITE(V2)
 {
-  int pinValue = param.asInt(); // assigning incoming value from pin V0 to a variable
+  int pinValue = param.asInt(); // assigning incoming value from pin V2 to a variable
   Serial.print("Received value from Blynk: ");
   Serial.println(pinValue);
   digitalWrite(LED,pinValue);
@@ -46,6 +47,7 @@ void setup() {
   // begin the Blynk session
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
   Blynk.run();
+  Blynk.syncVirtual(V2);
 
   // Start listening to the DHT11
   dht.begin();
@@ -82,6 +84,7 @@ void setup() {
 
   Serial.println("Going to sleep for 5 seconds...");
   delay(100);
+  Serial.flush();
   ESP.deepSleep(5e6);
 }
 
